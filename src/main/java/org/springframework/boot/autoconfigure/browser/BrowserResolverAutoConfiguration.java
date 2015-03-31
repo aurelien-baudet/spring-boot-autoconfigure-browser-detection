@@ -28,7 +28,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 /**
  * {@link EnableAutoConfiguration Auto-configuration} for Spring Browser
- * detection's {@link BrowserResolver}.
+ * detection's {@link HttpRequestBrowserResolver} and
+ * {@link UserAgentBrowserResolver}.
  *
  * @author Aurélien Baudet
  */
@@ -39,7 +40,7 @@ public class BrowserResolverAutoConfiguration {
 
 	@Configuration
 	@ConditionalOnWebApplication
-	@PropertySource(value="classpath:/browsers.properties")
+	@PropertySource(value = "classpath:/browsers.properties")
 	@EnableConfigurationProperties(BrowserMappingConfiguration.class)
 	protected static class BrowserResolverMvcConfiguration extends WebMvcConfigurerAdapter {
 
@@ -47,7 +48,7 @@ public class BrowserResolverAutoConfiguration {
 		private BrowserResolverHandlerInterceptor browserResolverHandlerInterceptor;
 
 		@Bean
-		@ConfigurationProperties(prefix="spring")
+		@ConfigurationProperties(prefix = "spring")
 		public BrowserMappingConfiguration browserMappingConfiguration() {
 			return new BrowserMappingConfiguration();
 		}
@@ -56,7 +57,7 @@ public class BrowserResolverAutoConfiguration {
 		public UserAgentBrowserResolver userAgentBrowserResolver() {
 			return new ConfigurableBrowserResolver(browserMappingConfiguration());
 		}
-		
+
 		@Bean
 		public HttpRequestBrowserResolver httpRequestBrowserResolver() {
 			return new UserAgentHttpHeaderDelegate(userAgentBrowserResolver());
