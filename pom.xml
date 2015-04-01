@@ -20,6 +20,8 @@
 	</organization>
 	<properties>
 		<main.basedir>${basedir}/..</main.basedir>
+		<nexus.release.url>http://nexus.devoxx.sii.fr/content/repositories/releases</nexus.release.url>
+		<nexus.snapshot.url>http://nexus.devoxx.sii.fr/content/repositories/snapshots</nexus.snapshot.url>
 	</properties>
 	
 	<dependencies>
@@ -68,4 +70,18 @@
 	<scm>
 		<url>https://github.com/aurelien-baudet/spring-boot-autoconfigure-browser-detection.git</url>
 	</scm>
+	
+		
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<name>Internal Releases</name>
+			<url>${nexus.release.url}</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>Internal Snapshots</name>
+			<url>${nexus.snapshot.url}</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
