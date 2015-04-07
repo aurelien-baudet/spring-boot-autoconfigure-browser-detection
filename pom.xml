@@ -21,8 +21,8 @@
 	</organization>
 	<properties>
 		<main.basedir>${basedir}/..</main.basedir>
-		<nexus.release.url>http://nexus.devoxx.sii.fr/content/repositories/releases</nexus.release.url>
-		<nexus.snapshot.url>http://nexus.devoxx.sii.fr/content/repositories/snapshots</nexus.snapshot.url>
+		<nexus.release.url>http://nexus.devoxx.sii-ouest.fr/content/repositories/releases</nexus.release.url>
+		<nexus.snapshot.url>http://nexus.devoxx.sii-ouest.fr/content/repositories/snapshots</nexus.snapshot.url>
 	</properties>
 	
 	<dependencies>
